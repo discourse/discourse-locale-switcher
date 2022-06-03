@@ -1,0 +1,12 @@
+available_locales:
+  default: ""
+  type: list
+
+icon_color:
+  default: "var(--header_primary-medium)"
+
+icon_hover_color:
+  default: "var(--header_primary)"
+
+locale_cookie_name:
+  default: "locale"

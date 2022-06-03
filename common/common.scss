@@ -1,0 +1,22 @@
+.custom-locale-dropdown {
+  &.select-kit.combo-box .select-kit-header {
+    border: none;
+    background: transparent;
+    margin-right: 0.75em;
+    .mobile-view & {
+      margin-right: 0.5em;
+    }
+
+    .d-icon {
+      padding: 0;
+      color: $icon-color;
+    }
+    &:hover,
+    &:focus {
+      .d-icon {
+        padding: 0;
+        color: $icon-hover-color;
+      }
+    }
+  }
+}
