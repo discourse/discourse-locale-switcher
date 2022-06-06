@@ -1,7 +1,10 @@
 {
+  "name": "discourse-locale-switcher",
+  "version": "1.0.0",
+  "repository": "https://github.com/discourse/discourse-locale-switcher",
   "author": "Discourse",
   "license": "MIT",
   "devDependencies": {
-    "eslint-config-discourse": "latest"
+    "eslint-config-discourse": "^3.1.0"
   }
 }
