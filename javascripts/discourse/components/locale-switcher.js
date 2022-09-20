@@ -28,7 +28,7 @@ export default Component.extend({
   },
 
   _getLocale() {
-    if (this.isDestroying || this.isDestroyed) {
+    if (this.isDestroying || this.isDestroyed || !this.currentUser) {
       return;
     }
 
@@ -46,16 +46,18 @@ export default Component.extend({
   },
 
   _setLocale(newLocale, setCookie) {
-    let userPath = `/u/${this.currentUser.username.toLowerCase()}.json`;
-    ajax(userPath, {
-      type: "PUT",
-      data: { locale: newLocale },
-    }).then(() => {
-      if (setCookie) {
-        cookie(COOKIENAME, newLocale);
-      }
-      window.location.reload();
-    });
+    if (this.currentUser) {
+      let userPath = `/u/${this.currentUser.username.toLowerCase()}.json`;
+      ajax(userPath, {
+        type: "PUT",
+        data: { locale: newLocale },
+      }).then(() => {
+        if (setCookie) {
+          cookie(COOKIENAME, newLocale);
+        }
+        window.location.reload();
+      });
+    }
   },
 
   didInsertElement() {
