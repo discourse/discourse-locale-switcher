@@ -52,12 +52,18 @@ export default Component.extend({
         type: "PUT",
         data: { locale: newLocale },
       }).then(() => {
-        if (setCookie) {
-          cookie(COOKIENAME, newLocale);
-        }
-        window.location.reload();
+        this._setLocaleCookie(newLocale, setCookie);
       });
+    } else {
+      this._setLocaleCookie(newLocale, setCookie);
     }
+  },
+
+  _setLocaleCookie(newLocale, setCookie) {
+    if (setCookie) {
+      cookie(COOKIENAME, newLocale);
+    }
+    window.location.reload();
   },
 
   didInsertElement() {
