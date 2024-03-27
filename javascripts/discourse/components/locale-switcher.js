@@ -1,7 +1,7 @@
 import Component from "@ember/component";
-import cookie from "discourse/lib/cookie";
-import { ajax } from "discourse/lib/ajax";
 import { action } from "@ember/object";
+import { ajax } from "discourse/lib/ajax";
+import cookie from "discourse/lib/cookie";
 import discourseComputed from "discourse-common/utils/decorators";
 
 const COOKIENAME = settings.locale_cookie_name;
