@@ -1,14 +1,15 @@
 import Component from "@ember/component";
 import { action } from "@ember/object";
+import { tagName } from "@ember-decorators/component";
 import { ajax } from "discourse/lib/ajax";
 import cookie from "discourse/lib/cookie";
 import discourseComputed from "discourse-common/utils/decorators";
 
 const COOKIENAME = settings.locale_cookie_name;
 
-export default Component.extend({
-  tagName: "",
-  _userLocale: "",
+@tagName("")
+export default class LocaleSwitcher extends Component {
+  _userLocale = "";
 
   @discourseComputed()
   locales() {
@@ -25,7 +26,7 @@ export default Component.extend({
     });
 
     return localeConstructed;
-  },
+  }
 
   _getLocale() {
     if (this.isDestroying || this.isDestroyed || !this.currentUser) {
@@ -43,7 +44,7 @@ export default Component.extend({
         this._setLocale(cookie(COOKIENAME), false);
       }
     });
-  },
+  }
 
   _setLocale(newLocale, setCookie) {
     if (this.currentUser) {
@@ -57,24 +58,24 @@ export default Component.extend({
     } else {
       this._setLocaleCookie(newLocale, setCookie);
     }
-  },
+  }
 
   _setLocaleCookie(newLocale, setCookie) {
     if (setCookie) {
       cookie(COOKIENAME, newLocale);
     }
     window.location.reload();
-  },
+  }
 
   didInsertElement() {
-    this._super(...arguments);
+    super.didInsertElement(...arguments);
     this._getLocale();
-  },
+  }
 
   @action
   setLocale(locale) {
     if (locale) {
       this._setLocale(locale, true);
     }
-  },
-});
+  }
+}
