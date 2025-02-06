@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import { tagName } from "@ember-decorators/component";
 import { ajax } from "discourse/lib/ajax";
 import cookie from "discourse/lib/cookie";
-import discourseComputed from "discourse-common/utils/decorators";
+import discourseComputed from "discourse/lib/decorators";
 
 const COOKIENAME = settings.locale_cookie_name;
 
