@@ -3,6 +3,7 @@
     border: none;
     background: transparent;
     margin-right: 0.75em;
+
     .mobile-view & {
       margin-right: 0.5em;
     }
@@ -11,6 +12,7 @@
       padding: 0;
       color: $icon-color;
     }
+
     &:hover,
     &:focus {
       .d-icon {
